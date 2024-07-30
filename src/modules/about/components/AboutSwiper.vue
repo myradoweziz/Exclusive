@@ -6,17 +6,18 @@
   import 'swiper/css'
   import 'swiper/css/pagination'
 
-  import { pagination, autoplay, icons } from '../helpers'
+  import { ICONS } from '../helpers'
+  import { AUTOPLAY, PAGINATION } from '@/utils'
 
   const modules = [Pagination, Autoplay]
 </script>
 
 <template>
   <swiper
-    :pagination="pagination"
+    :pagination="PAGINATION"
     :slides-per-view="3"
     :space-between="30"
-    :autoplay="autoplay"
+    :autoplay="AUTOPLAY"
     :speed="2300"
     :modules="modules"
     class="mySwiper about-swiper__swiper"
@@ -25,13 +26,13 @@
       <div class="about-swiper__body">
         <div class="about-swiper__image-block">
           <div class="about-swiper__image">
-            <img src="../../../assets/img/tom-cruise.png" alt="" />
+            <img src="@/assets/img/tom-cruise.png" alt="" />
           </div>
         </div>
         <div class="about-swiper__title">Tom Cruise</div>
         <div class="about-swiper__mission">Founder & Chairman</div>
         <div class="about-swiper__icons">
-          <div v-for="item in icons" :key="item" class="about-swiper__icon">
+          <div v-for="item in ICONS" :key="item" class="about-swiper__icon">
             <icon :name="item" />
           </div>
         </div>

@@ -1,42 +1,7 @@
 <script setup lang="ts">
   import Icon from '@/UI/Icon'
 
-  interface AccountItem {
-    id: number
-    name: string
-  }
-
-  interface FooterMenu {
-    id: number
-    title: string
-    accountItems: AccountItem[]
-  }
-
-  const footerIcons = ['facebook', 'twitter', 'instagram', 'linkedIn']
-
-  const footerMenu = [
-    {
-      id: 0,
-      title: 'Account',
-      accountItems: [
-        { id: 0, name: 'My Account' },
-        { id: 1, name: 'Login / Register' },
-        { id: 2, name: 'Cart' },
-        { id: 3, name: 'Wishlist' },
-        { id: 4, name: 'Shop' }
-      ]
-    },
-    {
-      id: 1,
-      title: 'Quick Link',
-      accountItems: [
-        { id: 0, name: 'Privacy Policy' },
-        { id: 1, name: 'Terms Of Use' },
-        { id: 2, name: 'FAQ' },
-        { id: 3, name: 'Contact' }
-      ]
-    }
-  ] as FooterMenu[]
+  import { FOOTER_ICONS, FOOTER_MENU } from '@/utils'
 </script>
 
 <template>
@@ -63,7 +28,7 @@
           <div class="support__email">exclusive@gmail.com</div>
           <div class="support__numbers">+88015-88888-9999</div>
         </div>
-        <div v-for="item in footerMenu" :key="item.id" class="footer__account account">
+        <div v-for="item in FOOTER_MENU" :key="item.id" class="footer__account account">
           <div class="account__title">{{ item.title }}</div>
           <ul class="account__list">
             <li v-for="accountItem in item.accountItems" :key="accountItem.id" class="account__item">
@@ -75,7 +40,7 @@
           <div class="download-app__title">Download App</div>
           <div class="download-app__desc">Save $3 with App New User Only</div>
           <div class="download-app__icons">
-            <div v-for="item in footerIcons" :key="item" class="download-app__icon">
+            <div v-for="item in FOOTER_ICONS" :key="item" class="download-app__icon">
               <icon :name="item" />
             </div>
           </div>

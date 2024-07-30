@@ -1,9 +1,12 @@
 <script setup lang="ts">
-  import { ref } from 'vue'
+  import { ref, watch } from 'vue'
+  import { useRoute } from 'vue-router'
 
   import TheHeader from '@/components/header/TheHeader.vue'
   import TheFooter from '@/components/TheFooter.vue'
   import Icon from '@/UI/Icon'
+
+  const route = useRoute()
 
   const isActive = ref(false)
 
@@ -20,6 +23,13 @@
   const scrollTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' })
   }
+
+  watch(
+    () => route.fullPath,
+    () => {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    }
+  )
 </script>
 
 <template>
@@ -42,7 +52,7 @@
   }
   .wrapper {
     display: flex;
-    height: 100%;
+    height: 100vh;
     flex-direction: column;
   }
   .visible-arrow {
@@ -50,7 +60,7 @@
     top: 650px;
     right: 10px;
     transform: rotate(270deg);
-    background-color: #f5f5f5;
+
     border-radius: 50%;
     padding: 10px;
     cursor: pointer;

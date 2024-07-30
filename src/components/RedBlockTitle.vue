@@ -1,15 +1,7 @@
 <script setup lang="ts">
-  import { defineProps } from 'vue'
-
-  defineProps({
-    title: {
-      type: String,
-      default: ''
-    },
-    redTitle: {
-      type: Boolean,
-      default: false
-    }
+  withDefaults(defineProps<{ title?: string; redTitle?: boolean }>(), {
+    redTitle: false,
+    title: ''
   })
 </script>
 

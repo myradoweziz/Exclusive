@@ -1,7 +1,8 @@
 <script setup lang="ts">
   import RedBlockTitle from '@/components/RedBlockTitle.vue'
   import Icon from '@/UI/Icon'
-  import { selectedCardSizes, selectedCardDeliveries } from '../helpers'
+
+  import { CARD_SIZES, CARD_DELIVERIES, CARD_COLOR_ICONS } from '../helpers'
 </script>
 
 <template>
@@ -51,18 +52,15 @@
           <div class="selected-card__colors">
             <p>Colours:</p>
             <div class="selected-card__color-icons">
-              <div class="selected-card__color-icon">
-                <icon name="checkedBlue" />
-              </div>
-              <div class="selected-card__color-icon">
-                <icon name="checkedDefault" />
+              <div v-for="item in CARD_COLOR_ICONS" :key="item" class="selected-card__color-icon">
+                <icon :name="item" />
               </div>
             </div>
           </div>
           <div class="selected-card__sizes-title">
             <div class="selected-card__size-title">Size:</div>
             <div class="selected-card__sizes">
-              <div v-for="item in selectedCardSizes" :key="item" class="selected-card__size">{{ item }}</div>
+              <div v-for="item in CARD_SIZES" :key="item" class="selected-card__size">{{ item }}</div>
             </div>
           </div>
           <div class="selected-card__buy-count-btn-icon">
@@ -83,7 +81,7 @@
             </div>
           </div>
           <div class="selected-card__card">
-            <div v-for="item in selectedCardDeliveries" :key="item.icon" class="selected-card__card-row">
+            <div v-for="item in CARD_DELIVERIES" :key="item.icon" class="selected-card__card-row">
               <div class="selected-card__card-icon">
                 <icon :name="item.icon" />
               </div>

@@ -1,6 +1,7 @@
 const moduleRoute = {
   path: '/about',
   component: () => import('./Module.vue'),
+  meta: { layout: 'default' },
   children: [
     {
       path: '',

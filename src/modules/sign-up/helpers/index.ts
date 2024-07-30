@@ -1,6 +1,6 @@
-import { SignUpInputs } from '../types'
+import type { SignUpInput } from '../types'
 
-export const signUpInputs = [
+export const SIGN_UP_INPUTS: SignUpInput[] = [
   { id: 0, type: 'email', placeholder: 'Email or Phone Number' },
   { id: 1, type: 'password', placeholder: 'Password' }
-] as SignUpInputs[]
+]

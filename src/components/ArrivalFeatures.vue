@@ -111,6 +111,7 @@
       font-size: 14px;
       font-weight: 400;
       line-height: 150%;
+      text-wrap: balance;
     }
     // .arrival-features__link
     &__link {

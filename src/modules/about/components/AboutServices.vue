@@ -1,14 +1,14 @@
 <script setup lang="ts">
   import Icon from '@/UI/Icon'
 
-  import { aboutCounts } from '../helpers'
+  import { ABOUT_COUNTS } from '../helpers'
 </script>
 
 <template>
   <section class="about-services">
     <div class="about-services__container">
       <div class="about-services__row">
-        <div v-for="item in aboutCounts" :key="item.id" class="about-services__card">
+        <div v-for="item in ABOUT_COUNTS" :key="item.id" class="about-services__card">
           <div class="icon">
             <div class="about-services__icon-red-blog">
               <div class="about-services__icon-blog">
@@ -49,12 +49,12 @@
       padding: 30px;
       cursor: pointer;
       transition: 0.3s all ease-in-out;
+      box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.2);
       &:hover {
         color: #fff;
-        background: var(--secondary-2, #db4444);
-        box-shadow: 0px 2px 10px 2px rgba(0, 0, 0, 0.2);
+        background-color: var(--secondary-2, #db4444);
         .about-services__icon-red-blog {
-          border: 10px solid #f79494;
+          border-color: #f79494;
         }
         .about-services__icon-blog {
           background-color: #fff;

@@ -1,7 +1,7 @@
 <script setup lang="ts">
   import PagesPath from '@/components/PagesPath.vue'
   import GlobalButton from '@/UI/GlobalButton'
-  import { myAccountInputs, myAccountPlaceholders, myAccountSubTitles, myAccountSecondMenuSubTitles } from '../helpers'
+  import { ACCOUNT_INPUT_ITEMS, ACCOUNT_PLACEHOLDERS, ACCOUNT_SUB_TITLES, ACCOUNT_MENU_SUB_TITLES } from '../helpers'
 </script>
 
 <template>
@@ -18,9 +18,9 @@
         <div class="my-account__sidebar">
           <div class="sidebar">
             <div class="sidebar__title">Manage My Account</div>
-            <div v-for="item in myAccountSubTitles" :key="item" class="sidebar__sub-title">{{ item }}</div>
+            <div v-for="item in ACCOUNT_SUB_TITLES" :key="item" class="sidebar__sub-title">{{ item }}</div>
             <div class="sidebar__title">My Orders</div>
-            <div v-for="item in myAccountSecondMenuSubTitles" :key="item" class="sidebar__sub-title">{{ item }}</div>
+            <div v-for="item in ACCOUNT_MENU_SUB_TITLES" :key="item" class="sidebar__sub-title">{{ item }}</div>
             <div class="sidebar__title">My WishList</div>
           </div>
         </div>
@@ -28,14 +28,14 @@
           <div class="profile">
             <div class="profile__title">Edit Your Profile</div>
             <div class="profile__inputs">
-              <div v-for="item in myAccountInputs" :key="item.label" class="profile__input">
+              <div v-for="item in ACCOUNT_INPUT_ITEMS" :key="item.label" class="profile__input">
                 <div class="profile__input-label">{{ item.label }}</div>
                 <input type="text" :placeholder="item.placeholder" />
               </div>
             </div>
             <div class="profile__password-changes">
               <div class="profile__password-title">Password Changes</div>
-              <div v-for="item in myAccountPlaceholders" :key="item" class="profile__password-input">
+              <div v-for="item in ACCOUNT_PLACEHOLDERS" :key="item" class="profile__password-input">
                 <input type="password" :placeholder="item" />
               </div>
             </div>

@@ -1,4 +1,4 @@
-export interface AboutCounts {
+export interface AboutCount {
   id: number
   icon: string
   count: string

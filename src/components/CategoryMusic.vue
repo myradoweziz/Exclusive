@@ -1,18 +1,5 @@
 <script setup lang="ts">
-  import { ref } from 'vue'
-
-  interface MusicTimes {
-    id: number
-    count: string
-    title: string
-  }
-
-  const musicTimes = ref<MusicTimes[]>([
-    { id: 0, count: '23', title: 'Hours' },
-    { id: 1, count: '05', title: 'Days' },
-    { id: 2, count: '59', title: 'Minutes' },
-    { id: 3, count: '35', title: 'Seconds' }
-  ])
+  import { MUSIC_DATES } from '@/utils'
 </script>
 
 <template>
@@ -26,7 +13,7 @@
             Music Experience
           </div>
           <div class="music__times">
-            <div v-for="item in musicTimes" :key="item.id" class="music__time">
+            <div v-for="item in MUSIC_DATES" :key="item.id" class="music__time">
               <p>{{ item.count }}</p>
               <span>{{ item.title }}</span>
             </div>

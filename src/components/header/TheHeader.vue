@@ -7,50 +7,36 @@
   import TheHeaderMenu from './TheHeaderMenu.vue'
   import TheHeaderSearch from './TheHeaderSearch.vue'
 
-  interface Icons {
-    id: number
-    name: string
-    isActive: Boolean
-  }
-
-  interface UsersDropdownItems {
-    id: number
-    icon: string
-    name: string
-  }
-
-  const icons = [
-    { id: 0, name: 'wishList', isActive: false },
-    { id: 1, name: 'card', isActive: false },
-    { id: 2, name: 'user', isActive: true }
-  ] as Icons[]
-
-  const usersDropdownItems = [
-    { id: 0, icon: 'bigUser', name: 'Manage My Account' },
-    { id: 1, icon: 'mallbag', name: 'My Order' },
-    { id: 2, icon: 'cancel', name: 'My Cancellations' },
-    { id: 3, icon: 'reviews', name: 'My Reviews' },
-    { id: 4, icon: 'logout', name: 'Logout' }
-  ] as UsersDropdownItems[]
+  import { ICONS, USER_DROPDOWN_ITEMS } from '@/utils'
 
   const isActive = ref(false)
   const router = useRouter()
 
   const goWishListOrCard = (index: number) => {
     const icon = document.getElementById('icon') as HTMLElement
-    index === 0
-      ? router.push('/wish-list')
-      : index === 2
-      ? (isActive.value = !isActive.value)
-      : index === 1
-      ? router.push('/card')
-      : (isActive.value = false)
 
-    window.addEventListener('click', (event: any) => {
+    switch (index) {
+      case 0:
+        router.push('/wish-list')
+        break
+      case 1:
+        router.push('/card')
+        break
+      case 2:
+        isActive.value = !isActive.value
+        break
+      default:
+        isActive.value = false
+    }
+
+    const handleClickOutside = (event: any) => {
       if (!icon.contains(event.target)) {
         isActive.value = false
+        window.removeEventListener('click', handleClickOutside)
       }
-    })
+    }
+
+    window.addEventListener('click', handleClickOutside)
   }
 
   const goMyAccount = (id: number) => {
@@ -73,7 +59,7 @@
           <the-header-search />
           <div class="header__icons">
             <div
-              v-for="icon in icons"
+              v-for="icon in ICONS"
               :key="icon.id"
               @click.stop="goWishListOrCard(icon.id)"
               id="icon"
@@ -83,7 +69,7 @@
               <div v-if="icon.isActive && isActive" class="header__user-dropdown user">
                 <div class="user__body">
                   <div
-                    v-for="item in usersDropdownItems"
+                    v-for="item in USER_DROPDOWN_ITEMS"
                     :key="item.id"
                     @click="goMyAccount(item.id)"
                     class="user__row"

@@ -1,4 +1,4 @@
-export interface SelectedCardDeliveries {
+export interface CardDelivery {
   id: number
   icon: string
   title: string

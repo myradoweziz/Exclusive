@@ -2,7 +2,7 @@ import { registerModules } from './router/register-modules'
 
 import about from './modules/about'
 import card from './modules/card'
-import check from './modules/check'
+import checkOut from './modules/check-out'
 import contact from './modules/contact'
 import myAccount from './modules/my-account'
 import selectAccount from './modules/select-account'
@@ -14,7 +14,7 @@ registerModules({
   home: home,
   about: about,
   card: card,
-  check: check,
+  checkOut: checkOut,
   contact: contact,
   selectAccount: selectAccount,
   myAccount: myAccount,

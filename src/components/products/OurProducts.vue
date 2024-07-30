@@ -1,8 +1,8 @@
 <script setup lang="ts">
   import RedBlockTitle from '../RedBlockTitle.vue'
   import GlobalButton from '@/UI/GlobalButton'
-  import Icon from '@/UI/Icon'
   import ProductsRow from './ProductsRow.vue'
+  import Icon from '@/UI/Icon'
 </script>
 
 <template>

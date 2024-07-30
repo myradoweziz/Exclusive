@@ -1,25 +1,14 @@
 <script setup lang="ts">
   import Icon from '@/UI/Icon'
 
-  interface Services {
-    id: number
-    icon: string
-    title: string
-    desc: string
-  }
-
-  const services = [
-    { id: 0, icon: 'delivery', title: 'FREE AND FAST DELIVERY', desc: 'Free delivery for all orders over $140' },
-    { id: 1, icon: 'customerService', title: 'FREE AND FAST DELIVERY', desc: 'Free delivery for all orders over $140' },
-    { id: 2, icon: 'guarantee', title: 'MONEY BACK GUARANTEE', desc: 'We return money within 30 days' }
-  ] as Services[]
+  import { SERVICES } from '@/utils'
 </script>
 
 <template>
   <section class="services">
     <div class="services__container">
       <div class="services__row">
-        <div v-for="item in services" :key="item.id" class="services__service">
+        <div v-for="item in SERVICES" :key="item.id" class="services__service">
           <div class="services__icon">
             <icon :name="item.icon" />
           </div>

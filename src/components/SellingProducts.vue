@@ -3,7 +3,7 @@
   import Icon from '@/UI/Icon'
   import RedBlockTitle from '@/components/RedBlockTitle.vue'
 
-  const flashSalesSwiperIcons = ['wishList', 'flipEye']
+  import { SWIPER_ICONS } from '@/utils'
 </script>
 
 <template>
@@ -20,7 +20,7 @@
         <div v-for="i in 4" :key="i" class="selling-products__card">
           <div class="selling-products__image-block">
             <div class="selling-products__icons">
-              <div v-for="item in flashSalesSwiperIcons" :key="item" class="selling-products__icon">
+              <div v-for="item in SWIPER_ICONS" :key="item" class="selling-products__icon">
                 <icon :name="item" />
               </div>
             </div>

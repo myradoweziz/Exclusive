@@ -1,11 +1,13 @@
+const CheckOut = () => import('./pages/CheckOut.vue')
+
 const moduleRoute = {
   path: '/check-out',
   component: () => import('./Module.vue'),
   children: [
     {
       path: '',
-      name: 'check',
-      component: () => import('./pages/CheckOut.vue')
+      name: 'check-out',
+      component: CheckOut
     }
   ]
 }

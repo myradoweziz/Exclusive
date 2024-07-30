@@ -1,9 +1,7 @@
 <script setup lang="ts">
   import Icon from '@/UI/Icon'
 
-  const flashSalesSwiperIcons = ['wishList', 'flipEye']
-
-  const productsCheckboxIcons = ['checkedRed', 'checkedDefault']
+  import { CHECKBOX_ICONS, SWIPER_ICONS } from '@/utils'
 </script>
 
 <template>
@@ -13,7 +11,7 @@
         <div class="products__mark-icons">
           <div class="products__mark">New</div>
           <div class="products__icons">
-            <div v-for="item in flashSalesSwiperIcons" :key="item" class="products__icon">
+            <div v-for="item in SWIPER_ICONS" :key="item" class="products__icon">
               <icon :name="item" />
             </div>
           </div>
@@ -38,7 +36,7 @@
           <div class="products__length">(35)</div>
         </div>
         <div class="products__checked-icons">
-          <div v-for="item in productsCheckboxIcons" :key="item" class="products__checked-icon">
+          <div v-for="item in CHECKBOX_ICONS" :key="item" class="products__checked-icon">
             <icon :name="item" />
           </div>
         </div>

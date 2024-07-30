@@ -9,25 +9,7 @@
   import 'swiper/css'
   import 'swiper/css/pagination'
 
-  interface CategorySwiperItems {
-    id: number
-    icon: string
-    name: string
-  }
-
-  const autoplay = {
-    delay: 2000,
-    disableOnInteraction: false
-  }
-
-  const categorySwiperItems = [
-    { id: 0, icon: 'phone', name: 'Phones' },
-    { id: 1, icon: 'computer', name: 'Computers' },
-    { id: 2, icon: 'smartwatch', name: 'SmartWatch' },
-    { id: 3, icon: 'camera', name: 'Camera' },
-    { id: 4, icon: 'headPhone', name: 'HeadPhones' },
-    { id: 5, icon: 'gamepad', name: 'Gaming' }
-  ] as CategorySwiperItems[]
+  import { AUTOPLAY, CATEGORY_ITEMS } from '@/utils'
 
   const categoriesSwiperRef = ref<any>(null)
 
@@ -57,11 +39,11 @@
             :slidesPerView="4.5"
             :speed="2000"
             :spaceBetween="30"
-            :autoplay="autoplay"
+            :autoplay="AUTOPLAY"
             :modules="modules"
             class="mySwiper categories__swiper"
           >
-            <swiper-slide v-for="item in categorySwiperItems" :key="item.id" class="categories__slide">
+            <swiper-slide v-for="item in CATEGORY_ITEMS" :key="item.id" class="categories__slide">
               <div class="categories__card">
                 <div class="categories__icon">
                   <icon :name="item.icon" />

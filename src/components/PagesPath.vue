@@ -1,8 +1,6 @@
 <script setup lang="ts">
-  import { defineProps } from 'vue'
-
-  defineProps({
-    pageTitle: { type: String, default: () => '' }
+  withDefaults(defineProps<{ pageTitle?: string }>(), {
+    pageTitle: ''
   })
 </script>
 

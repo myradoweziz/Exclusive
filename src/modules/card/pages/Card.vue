@@ -5,9 +5,9 @@
   import PagesPath from '@/components/PagesPath.vue'
   import GlobalButton from '@/UI/GlobalButton'
 
-  const router = useRouter()
+  import { CARD_BUTTONS } from '../helpers'
 
-  const cardButtons = ['Return To Shop', 'Update Cart']
+  const router = useRouter()
 </script>
 
 <template>
@@ -36,7 +36,7 @@
         </div>
       </div>
       <div class="card__buttons">
-        <div v-for="(item, index) in cardButtons" :key="index" class="card__button">
+        <div v-for="(item, index) in CARD_BUTTONS" :key="index" class="card__button">
           <button>{{ item }}</button>
         </div>
       </div>

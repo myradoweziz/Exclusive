@@ -6,21 +6,13 @@
   import 'swiper/css'
   import 'swiper/css/pagination'
 
-  // const pagination = {
-  //   clickable: true
-  // }
-  // Pagination,
-
-  const autoplay = {
-    delay: 2000,
-    disableOnInteraction: false
-  }
+  import { AUTOPLAY } from '@/utils'
 
   const modules = [Autoplay]
 </script>
 
 <template>
-  <swiper :autoplay="autoplay" :speed="2300" :modules="modules" class="mySwiper main-banner__swiper">
+  <swiper :autoplay="AUTOPLAY" :speed="2300" :modules="modules" class="mySwiper main-banner__swiper">
     <swiper-slide v-for="i in 5" :key="i" class="main-banner__swiper-slide">
       <div class="main-banner__swiper-row">
         <div class="main-banner__content">

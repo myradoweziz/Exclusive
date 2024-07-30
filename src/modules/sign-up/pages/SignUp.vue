@@ -3,7 +3,8 @@
 
   import Icon from '@/UI/Icon'
   import GlobalButton from '@/UI/GlobalButton'
-  import { signUpInputs } from '../helpers'
+
+  import { SIGN_UP_INPUTS } from '../helpers'
 
   const isActive = ref(true)
 </script>
@@ -21,7 +22,7 @@
           <div v-if="isActive" class="sign-up__input">
             <input type="text" placeholder="Name" />
           </div>
-          <div v-for="item in signUpInputs" :key="item.type" class="sign-up__input">
+          <div v-for="item in SIGN_UP_INPUTS" :key="item.type" class="sign-up__input">
             <input :type="item.type" :placeholder="item.placeholder" />
           </div>
         </div>

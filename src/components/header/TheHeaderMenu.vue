@@ -1,24 +1,11 @@
 <script setup lang="ts">
-  import { ref } from 'vue'
-
-  interface Menus {
-    id: number
-    name: string
-    path: string
-  }
-
-  const menus = ref<Menus[]>([
-    { id: 0, name: 'Home', path: '/' },
-    { id: 1, name: 'Contact', path: '/contact' },
-    { id: 2, name: 'About', path: '/about' },
-    { id: 3, name: 'Sign Up', path: '/sign-up' }
-  ])
+  import { HEADER_MENU } from '@/utils'
 </script>
 
 <template>
-  <nav class="header__menu menu">
+  <nav class="menu">
     <ul class="menu__list">
-      <li v-for="menu in menus" :key="menu.id" class="menu__item">
+      <li v-for="menu in HEADER_MENU" :key="menu.id" class="menu__item">
         <router-link :to="menu.path" exact class="menu__link"> {{ menu.name }} </router-link>
       </li>
     </ul>

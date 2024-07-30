@@ -1,11 +1,11 @@
 <script setup lang="ts">
-  import Default from '@/layouts/Default.vue'
+  import AppLayout from '@/layouts/AppLayout.vue'
 </script>
 
 <template>
-  <component :is="Default">
+  <AppLayout>
     <router-view />
-  </component>
+  </AppLayout>
 </template>
 
 <style lang="scss">

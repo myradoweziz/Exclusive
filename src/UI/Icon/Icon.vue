@@ -2,9 +2,7 @@
   import { computed } from 'vue'
   import icons from './icons'
 
-  const props = defineProps({
-    name: { type: String, default: '' }
-  })
+  const props = withDefaults(defineProps<{ name?: string }>(), { name: '' })
 
   const path = computed(() => {
     return (icons as any)[props.name]

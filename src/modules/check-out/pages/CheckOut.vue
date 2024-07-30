@@ -3,14 +3,7 @@
   import Icon from '@/UI/Icon'
   import GlobalButton from '@/UI/GlobalButton'
 
-  const checkOutInputs = [
-    'First Name*',
-    'Company Name',
-    'Street Address*',
-    'Town/City*',
-    'Phone Number*',
-    'Email Address'
-  ]
+  import { CHECK_OUT_INPUT_LABELS } from '../helpers'
 </script>
 
 <template>
@@ -24,7 +17,7 @@
         <div class="checkout__columns">
           <div class="checkout__title">Billing Details</div>
           <div class="checkout__inputs">
-            <div v-for="item in checkOutInputs" :key="item" class="checkout__input">
+            <div v-for="item in CHECK_OUT_INPUT_LABELS" :key="item" class="checkout__input">
               <div class="checkout__input-label">{{ item }}</div>
               <input type="text" />
             </div>

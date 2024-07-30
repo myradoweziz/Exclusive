@@ -4,10 +4,7 @@
   import Services from '@/components/Services.vue'
   import PagesPath from '@/components/PagesPath.vue'
 
-  const aboutDescriptions = [
-    'Launced in 2015, Exclusive is South Asia’s premier online shopping makterplace with an active presense in Bangladesh. Supported by wide range of tailored marketing, data and service solutions, Exclusive has 10,500 sallers and 300 brands and serves 3 millioons customers across the region.',
-    'Exclusive has more than 1 Million products to offer, growing at a very fast. Exclusive offers a diverse assotment in categories ranging from consumer.'
-  ]
+  import { ABOUT_DESCRIPTIONS } from '../helpers'
 </script>
 
 <template>
@@ -19,7 +16,7 @@
       <div class="about__content">
         <div class="about__title">Our Story</div>
         <div class="about__desc">
-          <p v-for="item in aboutDescriptions" :key="item">{{ item }}</p>
+          <p v-for="item in ABOUT_DESCRIPTIONS" :key="item">{{ item }}</p>
         </div>
       </div>
       <div class="about__image">

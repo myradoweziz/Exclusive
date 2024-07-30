@@ -2,23 +2,7 @@
   import Icon from '@/UI/Icon'
   import MainBannerSwiper from './MainBannerSwiper.vue'
 
-  interface SidebarItems {
-    id: number
-    name: string
-    arrow?: Boolean
-  }
-
-  const sidebarItems = [
-    { id: 0, name: 'Woman’s Fashion', arrow: true },
-    { id: 1, name: 'Men’s Fashion', arrow: true },
-    { id: 2, name: 'Electronics' },
-    { id: 3, name: 'Home & Lifestyle' },
-    { id: 4, name: 'Medicine' },
-    { id: 5, name: 'Sports & Outdoor' },
-    { id: 6, name: 'Baby’s & Toys' },
-    { id: 7, name: 'Groceries & Pets' },
-    { id: 8, name: 'Health & Beauty' }
-  ] as SidebarItems[]
+  import { SIDEBAR_ITEMS } from '@/utils'
 </script>
 
 <template>
@@ -30,7 +14,7 @@
             <div class="main-banner__sidebar__row">
               <nav class="main-banner__sidebar_menu menu">
                 <ul class="menu__list">
-                  <li v-for="item in sidebarItems" :key="item.id" class="menu__item">
+                  <li v-for="item in SIDEBAR_ITEMS" :key="item.id" class="menu__item">
                     <p>{{ item.name }}</p>
                     <div v-if="item.arrow" class="menu__icon">
                       <icon name="arrowBottom" />
