@@ -1,6 +1,15 @@
 .flash-sales {
   // .flash-sales__container
 
+  opacity: 0;
+  translate: 0 200px;
+  transition: 2s all ease;
+
+  &.showed {
+    opacity: 1;
+    translate: 0 0;
+  }
+
   &__container {
     max-width: 1305px;
     margin: 0 auto;

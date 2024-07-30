@@ -1,6 +1,22 @@
 <script setup lang="ts">
+  import { computed } from 'vue'
+
   import Icon from '@/UI/Icon'
   import RedBlockTitle from '@/components/RedBlockTitle.vue'
+
+  import { type Product } from '@/utils'
+  import { useWishlist } from '@/store/wishList'
+
+  const store = useWishlist()
+
+  const wishLists = computed((): Product[] => {
+    return store.getProducts()
+  })
+
+  const getImageUrl = (imageName: string) => {
+    const path = new URL(`../../../assets/img/${imageName}`, import.meta.url).href
+    return path
+  }
 </script>
 
 <template>
@@ -8,22 +24,22 @@
     <div class="wish-list__container">
       <div class="wish-list__row">
         <div class="wish-list__title-btn">
-          <div class="wish-list__title">Wishlist (4)</div>
+          <div class="wish-list__title">Wishlist ({{ wishLists.length }})</div>
           <div class="wish-list__btn">
             <button>Move All To Bag</button>
           </div>
         </div>
         <div class="wish-list__products">
-          <div v-for="i in 4" :key="i" class="wish-list__product product">
+          <div v-for="item in wishLists" :key="item.id" class="wish-list__product product">
             <div class="product__body">
               <div class="product__count-icon">
-                <div class="product__count">-35%</div>
+                <div class="product__count">{{ item.percent }}</div>
                 <div class="product__icon">
                   <icon name="delete" />
                 </div>
               </div>
               <div class="product__image">
-                <img src="@/assets/img/bag.png" alt="" />
+                <img :src="getImageUrl(item.image)" alt="" />
               </div>
               <div class="product__cart-btn">
                 <button>
@@ -33,16 +49,16 @@
               </div>
             </div>
             <div class="product__content">
-              <div class="product__title">RGB liquid CPU Cooler</div>
+              <div class="product__title">{{ item.title }}</div>
               <div class="product__pay">
-                <p>$960</p>
-                <span>$1160</span>
+                <p>{{ item.pay }}</p>
+                <span>{{ item.pay_percent }}</span>
               </div>
               <div class="product__stars-length">
                 <div class="product__stars">
                   <icon v-for="i in 5" :key="i" name="star" />
                 </div>
-                <div class="product__length">(65)</div>
+                <div class="product__length">{{ item.price }}</div>
               </div>
             </div>
           </div>

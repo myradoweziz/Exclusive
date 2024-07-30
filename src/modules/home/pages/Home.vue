@@ -10,32 +10,32 @@
 </script>
 
 <template>
-  <main class="main">
-    <div class="main__banner">
+  <section class="home">
+    <div class="home__banner">
       <main-banner />
     </div>
-    <div class="main__flash-sales">
+    <div class="home__flash-sales">
       <main-flash-sales />
     </div>
-    <div class="main__categories">
+    <div class="home__categories">
       <categories />
     </div>
-    <div class="main__selling-products pt-150">
+    <div class="home__selling-products pt-150">
       <selling-products />
     </div>
-    <div class="main__music">
+    <div class="home__music">
       <category-music />
     </div>
-    <div class="main__products">
+    <div class="home__products">
       <our-products />
     </div>
-    <div class="main__arrival">
+    <div class="home__arrival">
       <arrival-features />
     </div>
-    <div class="main__services">
+    <div class="home__services">
       <services />
     </div>
-  </main>
+  </section>
 </template>
 
 <style lang="scss" scoped>

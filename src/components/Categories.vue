@@ -2,6 +2,7 @@
   import { ref } from 'vue'
 
   import RedBlockTitle from './RedBlockTitle.vue'
+  import Observer from './Observer.vue'
   import Icon from '@/UI/Icon'
 
   import { Swiper, SwiperSlide } from 'swiper/vue'
@@ -18,13 +19,20 @@
   const prevOrNextSlide = (index: number) => {
     index === 1 ? categoriesSwiperRef.value.$el.swiper.slidePrev() : categoriesSwiperRef.value.$el.swiper.slideNext()
   }
+
+  const showCategories = ref<boolean>(false)
+
+  const showedCategories = () => {
+    showCategories.value = true
+  }
 </script>
 
 <template>
-  <section class="categories">
+  <section :class="['categories', { showed: showCategories }]">
     <div class="categories__container">
       <div class="categories__row">
         <red-block-title title="Categories" red-title />
+        <Observer @intersect="showedCategories" />
         <div class="categories__title-arrows">
           <div class="categories__title">Browse By Category</div>
           <div class="categories__arrows">
@@ -61,6 +69,15 @@
 <style lang="scss" scoped>
   .categories {
     padding-top: 90px;
+
+    opacity: 0;
+    translate: 0 200px;
+    transition: 2s all ease;
+
+    &.showed {
+      opacity: 1;
+      translate: 0 0;
+    }
     // .categories__container
     &__container {
       max-width: 1305px;

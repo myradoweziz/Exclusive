@@ -51,3 +51,13 @@ export interface FooterMenu {
   title: string
   accountItems: AccountItem[]
 }
+
+export interface Product {
+  id: number
+  percent: string
+  image: string
+  title: string
+  pay: string
+  pay_percent: string
+  price: string
+}

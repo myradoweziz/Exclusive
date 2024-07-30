@@ -1,13 +1,22 @@
 <script setup lang="ts">
-  import GlobalButton from '@/UI/GlobalButton'
-  import Icon from '@/UI/Icon'
+  import { ref } from 'vue'
+
   import RedBlockTitle from '@/components/RedBlockTitle.vue'
+  import GlobalButton from '@/UI/GlobalButton'
+  import Observer from './Observer.vue'
+  import Icon from '@/UI/Icon'
 
   import { SWIPER_ICONS } from '@/utils'
+
+  const showSellingProducts = ref<boolean>(false)
+
+  const showedSellingProducts = () => {
+    showSellingProducts.value = true
+  }
 </script>
 
 <template>
-  <section class="selling-products">
+  <section :class="['selling-products', { showed: showSellingProducts }]">
     <div class="selling-products__container">
       <red-block-title title="This Month" red-title />
       <div class="selling-products__title-btn">
@@ -16,6 +25,8 @@
           <global-button title="View All" />
         </div>
       </div>
+      <Observer @intersect="showedSellingProducts" />
+
       <div class="selling-products__row">
         <div v-for="i in 4" :key="i" class="selling-products__card">
           <div class="selling-products__image-block">
@@ -51,6 +62,14 @@
 
 <style lang="scss" scoped>
   .selling-products {
+    opacity: 0;
+    translate: 0 200px;
+    transition: 2s all ease;
+
+    &.showed {
+      opacity: 1;
+      translate: 0 0;
+    }
     // .selling-products__container
     &__container {
       max-width: 1305px;

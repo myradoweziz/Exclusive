@@ -102,6 +102,7 @@
       background: var(--primary, #fff);
       box-shadow: 0px 1px 13px 0px rgba(0, 0, 0, 0.05);
       margin: 40px 0;
+      cursor: pointer;
     }
     // .card__product-title
     &__product-title {

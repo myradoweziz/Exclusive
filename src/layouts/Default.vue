@@ -60,13 +60,13 @@
     top: 650px;
     right: 10px;
     transform: rotate(270deg);
-
     border-radius: 50%;
     padding: 10px;
     cursor: pointer;
     opacity: 0;
     transition: 0.3s all ease-in;
     z-index: 99;
+    background-color: #d5d4d4;
   }
   .visible {
     opacity: 1;
